@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS TEST</title>
+</head>
+<body>
+    <input type="text" id="name">
+    <button onclick="getSound()">API Call</button>  
+    <p>CORS를 체험하고 싶으면 app.use(cors())를 비활성화 하세요</p>
+    <script>
+        function getSound() {
+            async function logJSONData() {
+                const name = document.getElementById('name').value;
+                fetch(`http://localhost:3000/sound/${name}`)
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log(data)
+                    document.getElementById('name').value = data
+                    });
+                }
+            }
+    </script>
+</body>
+</html>
