@@ -2,12 +2,11 @@ const express = require('express')
 var cors = require('cors')
 const app = express()
 
-// app.use(cors()) // use cors module
+app.use(cors()) // use cors module
 
 app.get('/', function (req, res) {
   res.send('Hello World')
 })
-
 
 // return animal sound api
 app.get('/sound/:name', function (req, res) {
